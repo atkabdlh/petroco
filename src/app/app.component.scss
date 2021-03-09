@@ -1,0 +1,112 @@
+#firstToolbar {
+  color: #004f9f;
+}
+
+#firstToolbar mat-label {
+  padding-top: 10px;
+}
+
+#firstToolbar mat-select {
+  padding-top: 3px;
+  width: 20px;
+}
+
+#firstToolbar p {
+  margin: 10px;
+  padding-left: 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: lighter;
+  line-height: 18px;
+}
+
+#firstToolbar mat-label mat-icon {
+  color: #004f9f;
+}
+
+h4 {
+  padding-left: 10px;
+}
+
+#secondToolbar{
+  background-color: #004f9f;
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+#secondToolbar button {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: lighter;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+#secondToolbar button:hover {
+  cursor: pointer;
+}
+
+#secondToolbar a:visited {
+  color: white;
+}
+
+#secondToolbar a mat-icon {
+  color: white;
+  margin-top: 10px;
+}
+
+#secondToolbar a mat-icon:hover {
+  cursor: pointer;
+}
+
+th {
+  height: 30px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: left;
+}
+
+td {
+  height: 30px;
+  padding-left: 10px;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+form input {
+  border: 0;
+  border-bottom: 1px double #004f9f;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+#newVisitorForm {
+  padding-left: 10px;
+}
+
+.visitorFormButtons {
+  font-size: 16px;
+  font-weight: normal;
+  background-color: #004f9f;
+  color: white;
+  border: 0;
+  border-radius: 15px;
+  margin: 10px;
+}
+
+#cancel {
+  width: 80px;
+  height: 40px;
+}
+
+#submit {
+  width: 100px;
+  height: 40px;
+}
