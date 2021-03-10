@@ -62,9 +62,7 @@
         <td>{{ visitor.visitorHost }}</td>
         <td>{{ visitor.visitPurpose }}</td>
         <td>
-          <form [formGroup]="remarksForm">
-            <input formControlName="newRemarks" type=text [value]="visitor.remarks" (keyup.enter)="editRemarks(visitor, remarksForm.value)">
-          </form>
+          <input type=text [value]="visitor.remarks" (change)="editRemarks(visitor, $event.target.value)">
         </td>
         <td>
           <a (click)="deleteVisitor(visitor.id)">

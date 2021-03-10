@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
-import { VisitorsService, Visitor} from './visitors.service';
-import {FormControl, FormGroup} from '@angular/forms';
+import { VisitorsService, Visitor } from './visitors.service';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -32,11 +32,20 @@ export class AppComponent {
 
   list: Visitor[] = [];
 
-  remarksForm = new FormGroup({
-    newRemarks: new FormControl('')
-  });
-
   constructor(public auth: AngularFireAuth, private visitorsService: VisitorsService){
+    this.auth.onAuthStateChanged(user => {
+      if (user){
+        this.loggedIn = true;
+        console.log(user);
+        this.userDetails.name = user.displayName;
+        this.userDetails.uid = user.uid;
+        this.userDetails.email = user.email;
+
+        console.log(this.userDetails);
+        this.getVisitors(this.userDetails.uid);
+      }
+    });
+
     setInterval(() => {
       this.date = new Date();
     }, 1000);
@@ -45,16 +54,6 @@ export class AppComponent {
   // tslint:disable-next-line:typedef
   login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-    this.loggedIn = true;
-    this.auth.onAuthStateChanged(user => {
-      console.log(user);
-      this.userDetails.name = user.displayName;
-      this.userDetails.uid = user.uid;
-      this.userDetails.email = user.email;
-
-      console.log(this.userDetails);
-      this.getVisitors(this.userDetails.uid);
-    });
   }
 
   // tslint:disable-next-line:typedef
@@ -96,10 +95,11 @@ export class AppComponent {
     this.reset();
   }
 
-  editRemarks(details, newdetails) {
-    details.remarks = newdetails.newRemarks;
+  editRemarks(details, newRemarks) {
+    details.remarks = newRemarks;
     console.log(details);
     this.visitorsService.editVisitor(details.id, details);
+    console.log(newRemarks);
   }
 
   deleteVisitor(id) {
