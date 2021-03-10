@@ -17,12 +17,14 @@ export class VisitorsService {
   }
 
   deleteVisitor(visitorId: string) {
-    return this.firestore.doc('visitors/' + visitorId).delete();
+    return this.firestore.collection('visitors').doc(visitorId).delete();
+    // return this.firestore.doc('visitors/' + visitorId).delete();
   }
 
   editVisitor(visitorId: string, payload: Visitor) {
     console.log(payload);
-    return this.firestore.doc('visitors/' + visitorId).update(payload);
+    return this.firestore.collection('visitors').doc(visitorId).update(payload);
+    // return this.firestore.doc('visitors/' + visitorId).update(payload);
   }
 
   getVisitorById(visitorId: string) {

@@ -1,0 +1,8 @@
+{
+  "dev": [
+    {
+      "step1": "ng build --prod",
+      "step2": "firebase deploy"
+    }
+  ]
+}
